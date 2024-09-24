@@ -1,11 +1,11 @@
 import { Pressable, StyleSheet, Text, View } from "react-native"
 
 export default function GoItem({ text, onDeleteItem, id }) {
-   return <View style={styles.goalItem} >
-             <Pressable  android_ripple={{color: "#dddddd"}} onPress={onDeleteItem.bind(this, id)}>
+    return <View style={styles.goalItem} >
+        <Pressable android_ripple={{ color: "#dddddd" }} onPress={onDeleteItem.bind(this, id)} style={({pressed}) => pressed && styles.pressedItem }>
             <Text style={styles.goalText} >{text}</Text>
-    </Pressable>
-        </View>
+        </Pressable>
+    </View>
 }
 
 
@@ -17,8 +17,11 @@ const styles = StyleSheet.create({
     },
     goalText: {
         color: "white",
-        padding: 6,
+        padding: 8,
 
+    },
+    pressedItem: {
+        opacity: 0.5
     }
 })
 
